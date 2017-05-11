@@ -15,7 +15,10 @@ jQuery(document).ready(function(){
 			email: $('#email').val(),
 			company: $('#company').val(),
 			subject: $('#subject').val(),
-			message: $('#message').val()
+      state: $('#state').val(),
+      city: $('#city').val(),
+      MISC: $('#MISC').val(),
+			type: $('#type').val(),
 		},
 			function(data){
 				$('#contactform #submit').attr('disabled','');
@@ -101,11 +104,12 @@ jQuery(document).ready(function(){
             </li>
             <li>
               <label for="message">MISC</label>
-              <textarea id="message" name="message" rows="6" cols="50"></textarea>
+              <textarea id="MISC" name="MISC" rows="6" cols="50"></textarea>
             </li>
             <li class="buttons">
               <input type="image" name="imageField" id="imageField" src="images/send.gif" />
             </li>
+            <input type="hidden" name="type" id="type" value="franchisee">
           </ol>
         </form>
 		<a href="https://twitter.com/mccoylabs"><img src="images/twitter.jpg" alt="picture" border="0" /></a> </div>

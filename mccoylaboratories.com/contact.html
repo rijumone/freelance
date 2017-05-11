@@ -14,8 +14,11 @@ jQuery(document).ready(function(){
 			name: $('#name').val(),
 			email: $('#email').val(),
 			company: $('#company').val(),
-			subject: $('#subject').val(),
-			message: $('#message').val()
+			subject: "Contact page",
+      message: $('#message').val(),
+      number: $('#number').val(),
+      state: $('#state').val(),
+			query: $('#query').val(),
 		},
 			function(data){
 				$('#contactform #submit').attr('disabled','');
@@ -73,7 +76,7 @@ jQuery(document).ready(function(){
   <div class="left">
   <h2>Contact Us</h2>
   <p>Feel free to contact me or please fill up below in the following details and I will be in touch shortly.</p>
-<form action="contact.php" method="post" id="contactform">
+<form action="" method="post" id="contactform">
           <ol>
             <li>
               <label for="name">First Name * </label>
@@ -102,6 +105,7 @@ jQuery(document).ready(function(){
             <li class="buttons">
               <input type="image" name="imageField" id="imageField" src="images/send.gif" />
             </li>
+            <input type="hidden" name="type" value="contact">
           </ol>
         </form>
   </div>
