@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>contact</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function(){
+	$('#contactform').submit(function(){				  
+		var action = $(this).attr('action');
+		$.post(action, { 
+			name: $('#name').val(),
+			email: $('#email').val(),
+			company: $('#company').val(),
+			subject: $('#subject').val(),
+			message: $('#message').val()
+		},
+			function(data){
+				$('#contactform #submit').attr('disabled','');
+				$('.response').remove();
+				$('#contactform').before('<p class="response">'+data+'</p>');
+				$('.response').slideDown();
+				if(data=='Message sent!') $('#contactform').slideUp();
+			}
+		); 
+		return false;
+	});
+});
+// ]]>
+</script>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="block_header">
+      <div class="logo"><a href="index.html"><img src="images/logo.gif" width="433" height="85" border="0" alt="logo" /></a></div>
+	  <div class="callus"><div style="width:12%; float:left;padding-top:25px;"><img src="images/callus.png" width="26" height="27" border="0" alt="Call US" /></div>
+	  <div style="width:88%;float:right;padding-top:30px;text-align:left">Call us: +91 8272810981, 9760546163 </div> </div>
+      <div class="clr"></div>
+    </div>
+    <div class="menu_resize">
+      <a href="https://youtu.be/S3dt5cYWJQ4"><img src="images/youtube.gif" alt="picture" border="0" /></a>
+	   <a href="https://twitter.com/mccoylabs"><img src="images/twitter.gif" alt="picture" border="0" /></a>
+     <!--  <a href="#"><img src="images/blog.gif" alt="picture" border="0" /></a>-->
+	   <a href="https://www.facebook.com/mccoylaboratories"><img src="images/fbb.gif" alt="picture" border="0" /></a>
+         <div class="menu">
+          <ul>
+             <li><a href="index.html" ><span>Home</span></a></li>
+            <li><a href="about.html"><span>About Us</span></a></li>
+            <li><a href="portfolio.html"><span>Portfolio</span></a></li>
+            <li><a href="contact.html" class="active"><span>Contact us</span></a></li>
+			<li><a href="franchise.html"><span>Franchise</span></a></li>
+			<li><a href="products.html"><span>Our Products</span></a></li>
+          </ul>
+        </div>
+      <div class="clr"></div>
+      </div>
+  </div>
+   <div class="slider_top2">
+    <div class="header_text">
+      <img src="images/count_top.gif" alt="picture" width="85" height="72" class="ttext" />
+      <h3>Our Contact</h3>
+      <p>Feel free to contact us below. </p>
+      <div class="clr"></div>
+    </div>
+     <div class="clr"></div>
+  </div>
+  <div class="clr"></div>
+  <div class="body">
+    <div class="body_resize">
+  <div class="left">
+  <h2>Contact Us</h2>
+  <p>Feel free to contact me or please fill up below in the following details and I will be in touch shortly.</p>
+<form action="contact.php" method="post" id="contactform">
+          <ol>
+            <li>
+              <label for="name">First Name * </label>
+              <input id="name" name="name" class="text" />
+            </li>
+            <li>
+              <label for="email">Your email * </label>
+              <input id="email" name="email" class="text" />
+            </li>
+            <li>
+              <label for="number">Number</label>
+              <input id="number" name="number" class="text" />
+            </li>
+			 <li>
+              <label for="state">State</label>
+           	<input id="state" name="state" class="text" />
+            </li>
+            <li>
+              <label for="query">Query</label>
+              <input id="query" name="query" class="text" />
+            </li>
+            <li>
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" rows="6" cols="50"></textarea>
+            </li>
+            <li class="buttons">
+              <input type="image" name="imageField" id="imageField" src="images/send.gif" />
+            </li>
+          </ol>
+        </form>
+  </div>
+  <div class="right">
+    <h2>Contact Details</h2>
+    <p></p>
+        <p>
+		<strong>Contact Person</strong>: Parveen Gulati <br />
+		<strong>Regd. Off </strong>: M-3/110, Shradha Puri, Phase-I, Meerut Cantt. <br />
+          <strong>Telephone/Mobile</strong>:   +91 8272810981, 9760546163 <br />
+          <strong>FAX</strong>: 0121-2642575                
+          <br />
+          <strong>E-mail</strong>:            admin@mccoylaboratories.com</p>
+        <div class="bg"></div>
+        <a href="https://twitter.com/mccoylabs"><img src="images/twitter.jpg" alt="picture" border="0" /></a>
+        <div class="clr"></div>
+         <div class="bg"></div>
+        <h2>Testimonials</h2>
+        <p><em>&quot;Very friends owner of company, like to business with mccoy again and again in future &quot; </em></p>
+        <p><em><strong>-Sumit, labs n labs </strong></em></p>
+        <div class="bg"></div>
+        <p><em>&quot;very hard working company with friendly staff. &quot; </em></p>
+        <p><em><strong>-rijumone, fleet labs </strong></em></p>
+        <div class="bg"></div>
+  </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer_resize"><a href="#"><img src="images/footer_logo.gif" alt="picture" width="187" height="81" border="0" /></a>
+    <p class="leftt">© Copyright 2017. mccoylaboratories.com. All Rights Reserved<br /></p>
+    <div class="clr"></div>
+  </div>
+  <div class="clr"></div>
+</div>
+</body>
+</html>

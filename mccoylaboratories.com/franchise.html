@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>contact</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function(){
+	$('#contactform').submit(function(){				  
+		var action = $(this).attr('action');
+		$.post(action, { 
+			name: $('#name').val(),
+			email: $('#email').val(),
+			company: $('#company').val(),
+			subject: $('#subject').val(),
+			message: $('#message').val()
+		},
+			function(data){
+				$('#contactform #submit').attr('disabled','');
+				$('.response').remove();
+				$('#contactform').before('<p class="response">'+data+'</p>');
+				$('.response').slideDown();
+				if(data=='Message sent!') $('#contactform').slideUp();
+			}
+		); 
+		return false;
+	});
+});
+// ]]>
+</script>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="block_header">
+      <div class="logo"><a href="index.html"><img src="images/logo.gif" width="433" height="85" border="0" alt="logo" /></a></div>
+	  <div class="callus"><div style="width:12%; float:left;padding-top:25px;"><img src="images/callus.png" width="26" height="27" border="0" alt="Call US" /></div>
+	  <div style="width:88%;float:right;padding-top:30px;text-align:left">Call us: +91 8272810981, 9760546163 </div> </div>
+      <div class="clr"></div>
+    </div>
+    <div class="menu_resize">
+      <a href="https://youtu.be/S3dt5cYWJQ4"><img src="images/youtube.gif" alt="picture" border="0" /></a>
+	   <a href="https://twitter.com/mccoylabs"><img src="images/twitter.gif" alt="picture" border="0" /></a>
+     <!--  <a href="#"><img src="images/blog.gif" alt="picture" border="0" /></a>-->
+	   <a href="https://www.facebook.com/mccoylaboratories"><img src="images/fbb.gif" alt="picture" border="0" /></a>
+         <div class="menu">
+          <ul>
+            <li><a href="index.html"><span>Home</span></a></li>
+            <li><a href="about.html"><span>About Us</span></a></li>
+            <li><a href="portfolio.html"><span>Portfolio</span></a></li>
+            <li><a href="contact.html"><span>Contact us</span></a></li>
+			<li><a href="franchise.html" class="active"><span>Franchise</span></a></li>
+			<li><a href="products.html"><span>Our Products</span></a></li>
+          </ul>
+        </div>
+      <div class="clr"></div>
+      </div>
+  </div>
+   <div class="slider_top2">
+    <div class="header_text">
+      <img src="images/franchise.gif" alt="picture" width="85" height="72" class="ttext" />
+      <h3>Opportunity for PCD Pharma Franchise</h3>
+      <p>Feel free to contact us below. </p>
+      <div class="clr"></div>
+    </div>
+     <div class="clr"></div>
+  </div>
+  <div class="clr"></div>
+  <div class="body">
+    <div class="body_resize">
+  <div class="left">
+  <h2>Franchise Enquiry </h2>
+  <p><strong>Application for Franchisee Centre. </p>
+<form action="contact.php" method="post" id="contactform">
+          <ol>
+            <li>
+              <label for="name">First Name * </label>
+              <input id="name" name="name" class="text" />
+            </li>
+            <li>
+              <label for="email">Your email * </label>
+              <input id="email" name="email" class="text" />
+            </li>
+            <li>
+              <label for="company">Company</label>
+              <input id="company" name="company" class="text" />
+            </li>
+            <li>
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" class="text" />
+            </li>
+            <li>
+              <label for="state">State *</label>
+              <input id="state" name="state" class="text" />
+            </li>
+            <li>
+              <label for="city">city *</label>
+              <input id="city" name="city" class="text" />
+            </li>
+            <li>
+              <label for="message">MISC</label>
+              <textarea id="message" name="message" rows="6" cols="50"></textarea>
+            </li>
+            <li class="buttons">
+              <input type="image" name="imageField" id="imageField" src="images/send.gif" />
+            </li>
+          </ol>
+        </form>
+		<a href="https://twitter.com/mccoylabs"><img src="images/twitter.jpg" alt="picture" border="0" /></a> </div>
+  <div class="right">
+    <h2>Brief Details</h2>
+    <p><strong>Area</strong><br />
+Each FBP will be assigned an area of two medical representative’s territories. It means he can employ two medical representatives.. If some FBP’s are interested for bigger area i.e. 5 MR  that is also possible but no franchisee will be given an area bigger than 5 medical representatives’ territories.
+It will be mandatory for FBP to conduct all activities for the promotion of our products with in the area specified in the appointment letter. Any activity, direct or indirect, in any other area outside the geographical limits of the assigned area will be considered as gross offence which will invite immediate termination of contract without any notice.</p>
+
+<p>
+<strong>Validity of agreement</strong>
+There is no time bound validity period. The offered association is for Life Time.
+</p>
+<p>
+<strong>Target</strong>
+Minimum target is Rs.30000/- per month per territory of all the product mix. Each FBP will give 20% growth every year i.e. after 1year, target will be Rs.40000/- per month per territory and after 2 years target will be Rs.50000/- per month. However, FBP can achieve any amount of sales in a given year. The highest sales will not be a negative factor because next year’s targets will not be based upon previous year’s sales but will be given as per standard rule.
+</p>
+
+<p>
+<strong>Gifts</strong>
+Company can arrange gifts. The cost of such gifts will be done by FBP. The cost will be as per actual cost.
+</p>
+        <p>&nbsp;</p>  
+        <div class="clr"></div>
+  </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer_resize"><a href="#"><img src="images/footer_logo.gif" alt="picture" width="187" height="81" border="0" /></a>
+    <p class="leftt">© Copyright 2017. mccoylaboratories.com. All Rights Reserved<br /></p>
+    <div class="clr"></div>
+  </div>
+  <div class="clr"></div>
+</div>
+</body>
+</html>
