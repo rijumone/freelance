@@ -297,26 +297,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 		});
 
-
-		function sendMail(data){ console.log(data);
-			$.ajax({
-				method: "POST",
-				url: "server_scripts/sendMail.php",
-				dataType: 'json',
-				data: data,
-				success: function(reply){
-					console.log('success');
-				},
-				error: function(err){
-					console.log(err);
-				},
-
-			})
-		}
 	</script>
 <!-- //here ends scrolling icon -->
 <!-- for bootstrap working -->
 		<script src="js/bootstrap.js"> </script>
+		<script src="js/script.js"> </script>
 <!-- //for bootstrap working -->
 </body>
 </html>

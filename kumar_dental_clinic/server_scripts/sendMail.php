@@ -59,7 +59,7 @@ function returnJSON($arr=array('status'=>'fail','message'=>'unknown error')){
 }
 
 function sendMail(){
-	$status = mail($to,$subject,$message,$headers);
+	$status = mail($to,$subject,$message,$headers);//echo $status;exit;
 	if ($status) {
 		returnJSON($arr=array('status'=>'success','message'=>'mail sent'));
 	} else {

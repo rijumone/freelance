@@ -113,11 +113,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-8 contact-form-right">
 					<h4>Contact Form</h4>
-					<form>
-						<input type="text" value="Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Name';}" required="">
-						<input type="email" value="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">
-						<input type="text" value="Telephone" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Telephone';}" required="">
-						<textarea type="text"  onfocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+					<form id="contact_form" method="POST" onsubmit="sendMail($('#contact_form').serialize());return false;" >
+						<input type="text" name="name" value="Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Name';}" required="">
+						<input type="email" name="email"  value="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">
+						<input type="text"  name="telephone" value="Telephone" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Telephone';}" required="">
+						<textarea type="text"   name="message" onfocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+						<input type="hidden" name="type" value="contact" >
 						<input type="submit" value="Submit" >
 					</form>
 				</div>
@@ -165,6 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //here ends scrolling icon -->
 <!-- for bootstrap working -->
 		<script src="js/bootstrap.js"> </script>
+		<script src="js/script.js"> </script>
 <!-- //for bootstrap working -->
 </body>
 </html>
