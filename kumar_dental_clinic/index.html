@@ -199,11 +199,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="banner-bottom-grid-right-grid">
 						<h3>Make an appointment</h3>
 						<p> Please feel free to make an appointment by filling below form, once submitted our customer care will call you to confirm your appointment.</p>
-						<form>
-							<input type="text" value="Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Name';}" required="">
-							<input type="text" value="address" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Address';}" required="">
-							<input type="text" value="phone" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Phone';}" required="">
-							<input type="text" value="timing" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Timing';}" required="">
+						<form id="appointment_form" method="POST" onsubmit="sendMail($('#appointment_form').serialize());return false;" >
+							<input type="text" name="name" placeholder="Name" onFocus="this.value = '';" onBlur="//if (this.value == '') {this.value = 'Name';}" required="">
+							<input type="text" name="address"  placeholder="address" onFocus="this.value = '';" onBlur="//if (this.value == '') {this.value = 'Address';}" required="">
+							<input type="text"  name="phone" placeholder="phone" onFocus="this.value = '';" onBlur="//if (this.value == '') {this.value = 'Phone';}" required="">
+							<input type="text" name="timing"  placeholder="timing" onFocus="this.value = '';" onBlur="//if (this.value == '') {this.value = 'Timing';}" required="">
+							<input type="hidden" name="type" value="appt" >
 							<input type="submit" value="Submit" >
 						</form>
 					</div>
@@ -212,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<script src="js/jquery.swipebox.min.js"></script> 
 							<script type="text/javascript">
 								jQuery(function($) {
-									// $(".swipebox").swipebox();
+									$(".swipebox").swipebox();
 								});
 							</script>
 			</div>
@@ -282,19 +283,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //footer -->
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">
-									$(document).ready(function() {
-										/*
-										var defaults = {
-								  			containerID: 'toTop', // fading element id
-											containerHoverID: 'toTopHover', // fading element hover id
-											scrollSpeed: 1200,
-											easingType: 'linear' 
-								 		};
-										*/
-										
-										$().UItoTop({ easingType: 'easeOutQuart' });
-										
-									});
+		$(document).ready(function() {
+			/*
+			var defaults = {
+	  			containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+	 		};
+			*/
+			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+
+
+		function sendMail(data){ console.log(data);
+			$.ajax({
+				method: "POST",
+				url: "server_scripts/sendMail.php",
+				dataType: 'json',
+				data: data,
+				success: function(reply){
+					console.log('success');
+				},
+				error: function(err){
+					console.log(err);
+				},
+
+			})
+		}
 	</script>
 <!-- //here ends scrolling icon -->
 <!-- for bootstrap working -->
