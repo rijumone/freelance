@@ -1,13 +1,27 @@
-<?php
-
+<?php 
+//echo 1234;exit;
+//mail("mailmeonriju@gmail.com","it work1s","phew!");exit;
 $type = $_POST["type"];
+//echo $type;exit;
+
+// $to = "riteshkumar26061990@gmail.com,admin@kumardentalclinic.in";
+$to = "sumitas.designer@gmail.com";
+
+
+$headers = "";
+
+$headers .= 'Bcc: mailmeonriju@gmail.com' . "\r\n";
+ 	
+
+$subject = "";
+$message = "";
 
 switch ($type) {
 	case 'appt':
-		sendApptMail();
+		sendApptMail($to);
 		break;
 	case 'contact':
-		sendContactMail();
+		sendContactMail($to);
 		break;
 	
 	default:
@@ -15,32 +29,28 @@ switch ($type) {
 		break;
 }
 
-// $to = "riteshkumar26061990@gmail.com,admin@kumardentalclinic.in";
-$to = "mailmeonriju@gmail.com";
 
-
-$headers = "";
-$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-// $headers .= 'Bcc: mailmeonriju@gmail.com,sumitas.designer@gmail.com' . "\r\n";
- 	
-
-function sendApptMail(){
-
-	$subject = "Make an appointment";
+ 
+function sendApptMail($to){
+//echo "inside sendApptMail";exit;
+	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	$subject .= "Make an appointment";
 	$name = $_POST["name"];
 	$address = $_POST["address"];
 	$phone = $_POST["phone"];
 	$timing = $_POST["timing"];
 
-	$message = 'name : '.$name.'<br>';
+	$message .= 'name : '.$name.'<br>';
 	$message .= 'address : '.$address.'<br>';
 	$message .= 'phone : '.$phone.'<br>';
 	$message .= 'timing : '.$timing.'<br>';
 
+	sendMail($to,$subject,$message,$headers);
 }
 
-function sendContactMail(){
+function sendContactMail($to){
 
+	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 	$subject = "Contact Us";
 	$name = $_POST["name"];
 	$email = $_POST["email"];
@@ -52,14 +62,16 @@ function sendContactMail(){
 	$message .= 'telephone : '.$telephone.'<br>';
 	$message .= 'message : '.$message_txt.'<br>';
 
+	sendMail($to,$subject,$message,$headers);
+
 }
 
 function returnJSON($arr=array('status'=>'fail','message'=>'unknown error')){
 	echo json_encode($arr);exit;
 }
 
-function sendMail(){
-	$status = mail($to,$subject,$message,$headers);//echo $status;exit;
+function sendMail($to,$subject,$message,$headers){ //echo "inside sendMail";exit;
+	$status = mail($to,$subject,$message,$headers); //echo $status;exit;
 	if ($status) {
 		returnJSON($arr=array('status'=>'success','message'=>'mail sent'));
 	} else {

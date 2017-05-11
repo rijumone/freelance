@@ -6,6 +6,7 @@ function sendMail(data){ //console.log(data);
 		data: data,
 		success: function(reply){
 			console.log(reply);
+			$('form')[0].reset();
 			alert("Request sent!")
 		},
 		error: function(err){
