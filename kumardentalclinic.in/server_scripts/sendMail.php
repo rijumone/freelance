@@ -34,6 +34,7 @@ switch ($type) {
 function sendApptMail($to){
 //echo "inside sendApptMail";exit;
 	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	$headers .= "From: admin@kumardentalclinic.in\r\n";
 	$subject .= "Make an appointment";
 	$name = $_POST["name"];
 	$address = $_POST["address"];
@@ -51,6 +52,7 @@ function sendApptMail($to){
 function sendContactMail($to){
 
 	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	$headers .= "From: admin@kumardentalclinic.in\r\n";
 	$subject = "Contact Us";
 	$name = $_POST["name"];
 	$email = $_POST["email"];
