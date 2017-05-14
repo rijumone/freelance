@@ -22,9 +22,9 @@ else{
 	}
 
 	 
-	$your_email = "sumitas.designer@gmail.com";
+	$your_email = "mailmeonriju@gmail.com";
 	$email_subject = "New Message: ".$_POST['subject'];
-	$email_content = "new message:\n";
+	$email_content = "new message:<br>";
 	
 	foreach($values as $key => $value){
 	  if(in_array($value,$required)){
@@ -32,11 +32,15 @@ else{
 		  if( empty($_POST[$value]) ) { echo 'PLEASE FILL IN REQUIRED FIELDS'; exit; }
 		}
 	}
-		$email_content .= $value.': '.$_POST[$value]."\n";
+		$email_content .= $value.': '.$_POST[$value]."<br>";
 	 
 	}
 //	 echo $email_content;exit;
-	if(@mail($your_email,$email_subject,$email_content)) {
+
+$headers = "";
+$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+$headers .= "From: admin@mccoylaboratories.com\r\n";
+	if(@mail($your_email,$email_subject,$email_content,$headers)) {
 		echo 'Message sent!'; 
 	} else {
 		echo 'ERROR!';
